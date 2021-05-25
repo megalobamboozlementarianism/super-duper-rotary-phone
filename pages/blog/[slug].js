@@ -58,7 +58,7 @@ import blogStyles from '../../styles/Blog.module.css';
 // }
 
 export default function Page({ pageData }) {
-  console.log("page data object" + Object.entries(pageData))
+  // console.log("page data object" + Object.entries(pageData))
   const router = useRouter();
 
   if (!router.isFallback && !pageData?.slug) {
@@ -80,12 +80,12 @@ export default function Page({ pageData }) {
             <div className={blogStyles.postmeta}>
               <h1 className={styles.title}>{pageData.title}</h1>
             </div>
-            {/* <figure>
+            <figure>
                  <img
                    src={pageData.featuredImage.node.sourceUrl}
                    alt={pageData.title}
                  />
-            </figure> */}
+            </figure>
             <div
               className='post-content content'
               dangerouslySetInnerHTML={{ __html: pageData.content}}
