@@ -61,7 +61,7 @@ export default function Page({ pageData }) {
   console.log("page data object" + Object.entries(pageData))
   const router = useRouter();
 
-  if (!router.isFallback && !pageData.slug) {
+  if (!router.isFallback && !pageData?.slug) {
     return <p>hmm... looks like an error</p>;
   } 
 
@@ -80,12 +80,12 @@ export default function Page({ pageData }) {
             <div className={blogStyles.postmeta}>
               <h1 className={styles.title}>{pageData.title}</h1>
             </div>
-            <figure>
+            {/* <figure>
                  <img
                    src={pageData.featuredImage.node.sourceUrl}
                    alt={pageData.title}
                  />
-            </figure>
+            </figure> */}
             <div
               className='post-content content'
               dangerouslySetInnerHTML={{ __html: pageData.content}}
@@ -116,8 +116,8 @@ export async function getStaticPaths() {
   const allPages = await getAllPagesWithSlug();
 
   return {
-    paths: allPages.edges.map(({ node}) => `/blog/${node.slug}`) || [],
-    fallback: true
+    paths: allPages.edges.map(({ node }) => `/blog/${node.slug}`) || [],
+    fallback: false
   };
 }
 
