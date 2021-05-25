@@ -45,7 +45,7 @@ const allPagesRssXml = allPages => {
     const pageDate = Date.parse(page.date);
 
     // Remember to change this URL to your own!
-    const pageHref = `https://myamazingwebsite.com/blog/${page.slug}`;
+    const pageHref = `https://tender-morse-caf4a9.netlify.app/blog/${page.slug}`;
 
     if (!latestPostDate || pageDate > Date.parse(latestPostDate)) {
       latestPostDate = page.date;
@@ -84,7 +84,7 @@ const getRssXml = allPages => {
   >
     <channel>
         <title><![CDATA[Home Service Industry Websites By Big West Marketing]]></title>
-        <link>https://myamazingwebsite.com</link>
+        <link>https://tender-morse-caf4a9.netlify.app/</link>
         <description>
           <![CDATA[Totally tubular SEO and Websites from Missoula, MT]]>
         </description>
